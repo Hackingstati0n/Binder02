@@ -12,6 +12,7 @@ O script contém as seguintes funcionalidades principais:
 
 ## Requisitos
 
+- Binarios, arquivos ou paylaods prontos dentro da mesma pasta
 - Python 3.6 ou superior.
 - Os executáveis `AnyDesk.exe` e `Microsoft Edge.exe` devem estar presentes no diretório correto (ou no bundle do PyInstaller, se compilado).
 
