@@ -1,6 +1,6 @@
 # Script para Execução Simultânea de Dois Executáveis
 
-Este script Python permite a execução simultânea de dois executáveis (`AnyDesk.exe` e `Microsoft Edge.exe`) utilizando threads. Ele é compatível com execução direta ou após compilação com PyInstaller.
+Este script Python permite a execução simultânea de dois executáveis (`Binario1.exe` e `Binario2.exe`) utilizando threads. Ele é compatível com execução direta ou após compilação com PyInstaller.
 
 ## Estrutura do Script
 
